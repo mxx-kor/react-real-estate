@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { Flex, Select, Box, Text, Input, Spinner, Icon, Button, filter } from "@chakra-ui/react";
-import { useRouter, router } from "next/router";
+import { useRouter } from "next/router";
 import { MdCancel } from "react-icons/md";
 import Image from 'next/image';
 
 import { filterData, getFilterValues } from "../utils/filterData";
 
 const SearchFilters = () => {
-    const [filters, setFilters] = useState(filterData);
+    const [filters] = useState(filterData);
+    const router = useRouter();
 
     const searchProperties = (filterValues) => {
         const path = router.pathname;
@@ -18,7 +19,7 @@ const SearchFilters = () => {
             query[item.name] = item.value
         })
 
-        router.push({ pathname: path, query })
+        router.push({ pathname: path, query: query })
     }
 // 챌린지 - 로케이션 까지 입력하게
     return (
