@@ -146,6 +146,7 @@ export const filterData = [
       bathsMin,
       sort,
       locationExternalIDs,
+      furnishingStatus,
     } = filterValues;
   
     const values = [
@@ -189,6 +190,10 @@ export const filterData = [
         name: 'categoryExternalID',
         value: categoryExternalID,
       },
+      {
+        name: 'furnishingStatus',
+        value: furnishingStatus,
+      }
     ];
   
     return values;
